@@ -5,7 +5,7 @@ RUN apt-get update && apt-get install -y \
 	&& apt-get clean \
 	&& rm -rf /var/lib/apt/lists/*
 
-COPY ./conf/50-server.cnf /etc/mysql/mariadb.conf.d/
+COPY ./conf/50-server.conf /etc/mysql/mariadb.conf.d/
 COPY ./tools/setup.sh /usr/local/bin/
 
 RUN chmod +x /usr/local/bin/setup.sh
