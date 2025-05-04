@@ -29,7 +29,7 @@ else
 fi
 
 # Stop MariaDB service to restart properly with Docker
-service mariadb stop
+mysqladmin -u root -p$MYSQL_ROOT_PASSWORD shutdown
 
 # Start MariaDB with proper command for Docker
 exec "$@"
