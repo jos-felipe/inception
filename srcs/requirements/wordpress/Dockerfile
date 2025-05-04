@@ -1,23 +1,23 @@
 FROM debian:oldstable
 
 RUN apt-get update && apt-get install -y \
-	php7.3-fpm \
-	php7.3-mysql \
-	php7.3-curl \
-	php7.3-gd \
-	php7.3-intl \
-	php7.3-mbstring \
-	php7.3-soap \
-	php7.3-xml \
-	php7.3-xmlrpc \
-	php7.3-zip \
+	php7.4-fpm \
+	php7.4-mysql \
+	php7.4-curl \
+	php7.4-gd \
+	php7.4-intl \
+	php7.4-mbstring \
+	php7.4-soap \
+	php7.4-xml \
+	php7.4-xmlrpc \
+	php7.4-zip \
 	curl \
 	mariadb-client \
 	&& apt-get clean \
-	rm -rf /var/lib/apt/lists/*
+	&& rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /run/php && \
-	sed -i 's/listen = \/run\/php\/php7.3-fpm.sock/listen = 9000/' /etc/php/7.3/fpm/pool.d/www.conf
+	sed -i 's/listen = \/run\/php\/php7.4-fpm.sock/listen = 9000/' /etc/php/7.4/fpm/pool.d/www.conf
 
 RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
 	chmod +x wp-cli.phar && \
@@ -31,4 +31,4 @@ RUN chmod +x /usr/local/bin/setup.sh
 EXPOSE 9000
 
 ENTRYPOINT ["/usr/local/bin/setup.sh"]
-CMD ["php-fpm7.3", "-F"]
+CMD ["php-fpm7.4", "-F"]
