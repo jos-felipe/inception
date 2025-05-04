@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Wait for MariaDB to be ready
-while ! mariadb -h mariadb -u${MYSQL_USER} -p${MYSQL_PASSWORD} -e "SELECT 1" ${MYSQL_DATABASE} >/dev/null 2>&1; do
+while ! mariadb -h mariadb -P 3306 -u${MYSQL_USER} -p${MYSQL_PASSWORD} -e "SELECT 1" ${MYSQL_DATABASE} >/dev/null 2>&1; do
     echo "Waiting for MariaDB to be ready..."
     sleep 5
 done

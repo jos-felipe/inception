@@ -15,8 +15,4 @@ RUN chmod +x /usr/local/bin/setup.sh
 
 EXPOSE 3306
 
-ENTRYPOINT [ "setup.sh" ]
-
-USER mysql
-
-CMD [ "mysql" ]
+ENTRYPOINT [ "/usr/local/bin/setup.sh" ]
