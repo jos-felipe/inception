@@ -15,7 +15,7 @@ clean: down
 	docker system prune -a
 
 fclean:
-	rm -rf /home/$(USER)/data
+	sudo rm -rf /home/$(USER)/data
 
 re: fclean all
 
