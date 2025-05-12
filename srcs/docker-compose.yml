@@ -1,4 +1,4 @@
-version: '3'
+=version: '3'
 
 services:
   nginx:
@@ -25,6 +25,7 @@ services:
       - wordpress_data:/var/www/html
     networks:
       - inception_network
+    restart: always
     env_file:
       - .env
 
@@ -57,3 +58,4 @@ volumes:
       type: none
       device: /home/${USER}/data/mariadb
       o: bind
+
